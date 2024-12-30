@@ -3,6 +3,6 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "product_id": 1,
+  "product_id": 7,
   "quantity": 2
 }

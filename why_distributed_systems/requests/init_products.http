@@ -1,0 +1,16 @@
+POST http://localhost:80/products
+Content-Type: application/json
+Accept: application/json
+
+[
+  { "id": 1, "name": "Apple iPhone 13", "price": 999.99 },
+  { "id": 2, "name": "Samsung Galaxy S21", "price": 799.99 },
+  { "id": 3, "name": "Google Pixel 6", "price": 599.99 },
+  { "id": 4, "name": "OnePlus 9", "price": 729.99 },
+  { "id": 5, "name": "Sony WH-1000XM4", "price": 349.99 },
+  { "id": 6, "name": "Bose QuietComfort 35 II", "price": 299.99 },
+  { "id": 7, "name": "Apple MacBook Pro", "price": 1299.99 },
+  { "id": 8, "name": "Dell XPS 13", "price": 999.99 },
+  { "id": 9, "name": "HP Spectre x360", "price": 1099.99 },
+  { "id": 10, "name": "Microsoft Surface Laptop 4", "price": 999.99 }
+]
