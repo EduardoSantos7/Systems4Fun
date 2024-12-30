@@ -1,0 +1,8 @@
+POST http://localhost:80/cart
+Content-Type: application/json
+Accept: application/json
+
+{
+  "product_id": 1,
+  "quantity": 2
+}
