@@ -10,11 +10,17 @@ COPY . /app
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir fastapi uvicorn pymongo pydantic
 
+# Install K6
+RUN apt-get update && apt-get install -y gnupg2 curl && \
+    curl -s https://dl.k6.io/key.gpg | apt-key add - && \
+    echo "deb https://dl.k6.io/deb stable main" > /etc/apt/sources.list.d/k6.list && \
+    apt-get update && apt-get install -y k6
+
 # Make port 80 available to the world outside this container
 EXPOSE 80
 
 # Define environment variable
 ENV PORT 80
 
-# Run app.py when the container launches
-CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "80"]
+# Single CMD line that runs a shell to evaluate `nproc` and pass to uvicorn
+CMD ["/bin/sh", "-c", "WORKERS=$(nproc) && echo \"Starting with $WORKERS workers...\" && uvicorn server:app --host 0.0.0.0 --port 80 --workers $WORKERS"]

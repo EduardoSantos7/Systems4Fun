@@ -10,8 +10,12 @@ export let options = {
       executor: 'ramping-vus',
       startVUs: 0,
       stages: [
-        { duration: '1m', target: 50 },   // ramp up to 50 VUs in 1 min
-        { duration: '2m', target: 500 },  // then to 500 VUs in next 2 min
+        { duration: '1s', target: 50 },   // ramp up to 50 VUs in 1 min
+        { duration: '10s', target: 500 },  // then to 500 VUs in next 2 min
+        { duration: '30s', target: 1500 },
+        { duration: '1m', target: 2500 },
+        { duration: '2m', target: 5000 },
+        { duration: '4m', target: 10000 },
         { duration: '1m', target: 0 },    // ramp down to 0
       ],
       gracefulRampDown: '30s',
