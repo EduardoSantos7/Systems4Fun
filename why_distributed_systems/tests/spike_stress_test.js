@@ -11,8 +11,8 @@ export let options = {
   scenarios: {
     spike_test: {
       executor: 'shared-iterations',
-      vus: 1000,
-      iterations: 10000, // total requests
+      vus: 100000,
+      iterations: 1000000, // total requests
       maxDuration: '1m', // or time limit
     },
   },

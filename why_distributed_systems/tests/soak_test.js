@@ -6,7 +6,7 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 
 export let options = {
-  vus: 10,
+  vus: 10000,
   duration: '30m', // run for 30 minutes (or more)
 };
 

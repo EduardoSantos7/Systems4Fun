@@ -2,12 +2,12 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 
 export let options = {
-    vus: 10000, // number of virtual users
-    duration: '30s', // duration of the test
+    vus: 100000, // number of virtual users
+    duration: '60s', // duration of the test
 };
 
 export default function () {
-    let res = http.get('http://localhost:80/products');
+    let res = http.get('http://host.docker.internal:80/products');
     check(res, {
         'is status 200': (r) => r.status === 200,
         'response time is less than 200ms': (r) => r.timings.duration < 200,
