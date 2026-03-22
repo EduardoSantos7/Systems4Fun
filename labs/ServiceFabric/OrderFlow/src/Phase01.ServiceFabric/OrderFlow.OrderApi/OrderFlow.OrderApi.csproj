@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <!-- net8.0 required: SF SDK has full support through net8.
+         net9.0 support may work but is not officially validated yet.
+         Do not change this to net9.0. -->
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- Microsoft.ServiceFabric.Services: provides StatelessService,
+         StatefulService, ServiceRuntime, ServiceContext, etc.
+         This is the core SF programming model package. -->
+        <PackageReference Include="Microsoft.ServiceFabric.Services" Version="8.4.205-rc" />
+
+        <!-- Microsoft.ServiceFabric.AspNetCore.Kestrel: provides
+         KestrelCommunicationListener so your ASP.NET Core app can
+         run as a proper SF communication listener. -->
+        <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="8.4.205-rc" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- Reference Shared projects. MSBuild picks the net8.0 target
+         automatically because this project targets net8.0. -->
+        <ProjectReference Include="..\..\Shared\OrderFlow.Domain\OrderFlow.Domain.csproj" />
+        <ProjectReference Include="..\..\Shared\OrderFlow.Contracts\OrderFlow.Contracts.csproj" />
+    </ItemGroup>
+
+    <!-- PackageRoot contains the ServiceManifest and config.
+       We mark it as content so it gets copied to the output directory,
+       where the deployment script can find it to build the app package. -->
+    <ItemGroup>
+        <Content Include="PackageRoot\**\*">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+</Project>

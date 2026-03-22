@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Configuration settings accessible at runtime via
+     context.CodePackageActivationContext.GetConfigurationPackageObject("Config")
+     We will use this in Phase 6 for health check thresholds and timeouts. -->
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://schemas.microsoft.com/2011/01/fabric">
+    <Section Name="OrderApiConfig">
+        <Parameter Name="MaxOrdersPerMinute" Value="100" />
+    </Section>
+</Settings>

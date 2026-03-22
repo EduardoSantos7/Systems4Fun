@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="OrderApiPkg" Version="1.0.0"
+    xmlns="http://schemas.microsoft.com/2011/01/fabric"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <ServiceTypes>
+        <!--
+      ServiceTypeName MUST match the string in ServiceRuntime.RegisterServiceAsync
+      in Program.cs. If they don't match, the service stays in 'InBuild' forever.
+    -->
+        <StatelessServiceType ServiceTypeName="OrderApiType" />
+    </ServiceTypes>
+
+    <!--
+    CodePackage Version must be incremented when you change the binaries.
+    The outer ServiceManifest Version must also be incremented.
+    These are what Service Fabric uses to detect that something changed
+    and needs to be upgraded. If you forget to bump them, SF will skip
+    redeploying your new code during an upgrade.
+  -->
+    <CodePackage Name="Code" Version="1.0.0">
+        <EntryPoint>
+            <ExeHost>
+                <!-- The executable SF will launch. Must match the project output name. -->
+                <Program>OrderFlow.OrderApi.exe</Program>
+                <WorkingFolder>CodePackage</WorkingFolder>
+            </ExeHost>
+        </EntryPoint>
+    </CodePackage>
+
+    <ConfigPackage Name="Config" Version="1.0.0" />
+
+    <Resources>
+        <Endpoints>
+            <!--
+        "ServiceEndpoint" must match the name passed to KestrelCommunicationListener
+        in OrderApi.cs. Port 8080 is our fixed port for local dev.
+        In production you can omit Port to let SF assign a dynamic port.
+      -->
+            <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" />
+        </Endpoints>
+    </Resources>
+
+</ServiceManifest>
