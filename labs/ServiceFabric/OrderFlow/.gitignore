@@ -1,0 +1,80 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]enchmark[Dd]ot[Nn]et.Artifacts/
+
+# Coverage
+coverage/
+coverage.*
+*.coverage
+*.coveragexml
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+
+# Generated files
+Generated/
+*.generated.cs
+
+# Publish output
+publish/
+artifacts/
+
+# ASP.NET Core / local secrets
+secrets.json
+
+# Node modules (in case later you add frontend tooling)
+node_modules/
+
+# Service Fabric generated / packaged output
+pkg/
+PackageRoot/Code/
+PackageRoot/Config/*.g.cs
+ApplicationPackageRoot/
+*_SFProj/
+Debug/
+Release/
+
+# Service Fabric local cluster / diagnostics artifacts that may appear locally
+ServiceFabricBackup/
+ClusterData/
+
+# Azure / local tooling
+.local/
+.env
+.env.*
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
